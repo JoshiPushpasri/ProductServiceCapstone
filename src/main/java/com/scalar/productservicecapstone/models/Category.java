@@ -1,22 +1,22 @@
 package com.scalar.productservicecapstone.models;
 
-public class Category {
-    private long id;
-    private String name;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.OneToMany;
+import lombok.Getter;
+import lombok.Setter;
 
-    public long getId() {
-        return this.id;
-    }
+import java.util.List;
 
-    public String getName() {
-        return this.name;
-    }
+@Setter
+@Getter
+@Entity
+public class Category extends BaseModel{
+    private String description;
 
-    public void setId(long id) {
-        this.id = id;
-    }
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    @OneToMany
+    private List<Product> featuredProducts;
 }
