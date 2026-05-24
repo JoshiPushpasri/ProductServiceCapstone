@@ -28,13 +28,23 @@ public class ProductDBService implements ProductService {
 
     @Override
     public Product getProductById(long id) throws ProductNotFoundException {
-        Optional<Product> optionalProduct = productRepository.findById(id);
 
-        if(optionalProduct.isEmpty())
-        {
-            throw new ProductNotFoundException("Product with id " + id + " not found");
-        }
-        return optionalProduct.get();
+        Optional<Category> categoryOptional = categoryRepository.findByName("Electronics");
+        List<Product> products = categoryOptional.get().getProducts();
+
+
+        //List<Product> products = productRepository.getProductsByCategoryNameNative("Electronics");
+        System.out.println(products);
+        return null;
+
+
+        //Optional<Product> optionalProduct = productRepository.findById(id);
+
+        //if(optionalProduct.isEmpty())
+        //{
+        //    throw new ProductNotFoundException("Product with id " + id + " not found");
+        //}
+        //return optionalProduct.get();
     }
 
     @Override
