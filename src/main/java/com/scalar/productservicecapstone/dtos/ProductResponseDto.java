@@ -22,6 +22,9 @@ public class ProductResponseDto {
 
     public static ProductResponseDto from(Product product)
     {
+        if (product == null){
+            return null;
+        }
         ProductResponseDto productResponseDto = new ProductResponseDto();
         productResponseDto.setId(product.getId());
         productResponseDto.setName(product.getName());

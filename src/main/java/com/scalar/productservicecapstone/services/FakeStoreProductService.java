@@ -56,9 +56,12 @@ public class FakeStoreProductService implements ProductService
         fakeStoreProductRequestDto.setImage(imageurl);
         fakeStoreProductRequestDto.setCategory(Category);
 
-        FakeStoreProductDto  fakeStoreProductDto = restTemplate.postForObject("https://fakestoreapi.com/products",fakeStoreProductRequestDto, FakeStoreProductDto.class);
+
+        FakeStoreProductDto fakeStoreProductDto = restTemplate.postForObject("https://fakestoreapi.com/products", fakeStoreProductRequestDto, FakeStoreProductDto.class);
+
 
         return fakeStoreProductDto.toProduct();
+
     }
 
 }
