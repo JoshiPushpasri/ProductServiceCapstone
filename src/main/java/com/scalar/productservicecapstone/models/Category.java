@@ -1,5 +1,6 @@
 package com.scalar.productservicecapstone.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
@@ -19,6 +20,7 @@ public class Category extends BaseModel{
 
     @OneToMany(mappedBy = "category")
     @Fetch(FetchMode.JOIN)
+    @JsonIgnore
     private List<Product> products;
 
 }
